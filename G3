@@ -1,0 +1,25 @@
+Expr ArithExpr Term Multiplier PrimaryExpr RelationOper SumSign MultiSign
+^ + - * / % < <= = >= > <> Identifier Digit ( )
+Expr -> ArithExpr RelationOper ArithExpr
+ArithExpr -> Term
+ArithExpr -> SumSign Term
+ArithExpr -> ArithExpr SumSign Term
+Term -> Multiplier
+Term -> Term MultiSign Multiplier
+Multiplier -> PrimaryExpr
+Multiplier -> Multiplier ^ PrimaryExpr
+PrimaryExpr -> Digit
+PrimaryExpr -> Identifier
+PrimaryExpr -> ( ArithExpr )
+SumSign -> +
+SumSign -> -
+MultiSign -> *
+MultiSign -> /
+MultiSign -> %
+RelationOper -> <
+RelationOper -> <=
+RelationOper -> =
+RelationOper -> >=
+RelationOper -> >
+RelationOper -> <>
+Expr

@@ -1,0 +1,30 @@
+Expr ArithExpr Term Multiplier PrimaryExpr RelationOper SumSign MultiSign Program Block Operator OperatorList
+^ + - * / % < <= = >= > <> Identifier Digit ( ) begin_ _end ;
+Program -> Block
+Block -> begin_ OperatorList _end
+OperatorList -> Operator
+OperatorList -> OperatorList ; Operator
+Operator -> Identifier = Expr
+Expr -> ArithExpr RelationOper ArithExpr
+ArithExpr -> Term
+ArithExpr -> SumSign Term
+ArithExpr -> ArithExpr SumSign Term
+Term -> Multiplier
+Term -> Term MultiSign Multiplier
+Multiplier -> PrimaryExpr
+Multiplier -> Multiplier ^ PrimaryExpr
+PrimaryExpr -> Digit
+PrimaryExpr -> Identifier
+PrimaryExpr -> ( ArithExpr )
+SumSign -> +
+SumSign -> -
+MultiSign -> *
+MultiSign -> /
+MultiSign -> %
+RelationOper -> <
+RelationOper -> <=
+RelationOper -> =
+RelationOper -> >=
+RelationOper -> >
+RelationOper -> <>
+Program

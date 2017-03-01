@@ -1,0 +1,12 @@
+S T E
++ - / * a b
+S -> S + T
+S -> S - T
+S -> T
+T -> T * E
+T -> T / E
+T -> E
+E -> ( S )
+E -> a
+E -> b
+S

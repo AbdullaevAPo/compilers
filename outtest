@@ -1,0 +1,8 @@
+T E F
+a + * ( )
+T -> F * T
+T -> F
+E -> T + E
+E -> T
+F -> a
+E

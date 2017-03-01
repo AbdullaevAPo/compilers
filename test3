@@ -1,0 +1,16 @@
+A B C D F G S
+a b c
+S -> a A B
+A -> a A
+A -> b B
+B -> A C b
+B -> b
+C -> A
+C -> b A
+C -> c C
+D -> a
+D -> c
+D -> F b
+F -> B C
+F -> A C
+S
