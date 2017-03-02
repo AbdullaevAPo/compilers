@@ -1,8 +1,39 @@
-T E F
-a + * ( )
-T -> F * T
-T -> F
-E -> T + E
-E -> T
-F -> a
-E
+ArithExpr Operator Program Term OperatorList' OperatorList ArithExpr' Expr Term' RelationOper MultiSign Multiplier' Multiplier Block PrimaryExpr SumSign
+^ + - * / % < <= = >= > <> Identifier Digit ( ) begin_ _end ;
+ArithExpr -> Term
+ArithExpr -> SumSign Term
+ArithExpr -> Term ArithExpr'
+ArithExpr -> SumSign Term ArithExpr'
+Operator -> Identifier = Expr
+Program -> Block
+Term -> Multiplier
+Term -> Multiplier Term'
+OperatorList' -> ; Operator
+OperatorList' -> ; Operator OperatorList'
+OperatorList -> Identifier = Expr
+OperatorList -> Identifier = Expr OperatorList'
+ArithExpr' -> SumSign Term
+ArithExpr' -> SumSign Term ArithExpr'
+Expr -> ArithExpr RelationOper ArithExpr
+Term' -> MultiSign Multiplier
+Term' -> MultiSign Multiplier Term'
+RelationOper -> <
+RelationOper -> <=
+RelationOper -> =
+RelationOper -> >=
+RelationOper -> >
+RelationOper -> <>
+Multiplier' -> ^ PrimaryExpr
+Multiplier' -> ^ PrimaryExpr Multiplier'
+MultiSign -> *
+MultiSign -> /
+MultiSign -> %
+Multiplier -> PrimaryExpr
+Multiplier -> PrimaryExpr Multiplier'
+Block -> begin_ OperatorList _end
+PrimaryExpr -> Digit
+PrimaryExpr -> Identifier
+PrimaryExpr -> ( ArithExpr )
+SumSign -> +
+SumSign -> -
+Program

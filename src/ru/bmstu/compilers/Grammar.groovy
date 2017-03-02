@@ -34,20 +34,20 @@ class Grammar {
                     break;
                 case 1:
                     terminals = Arrays.stream(str.split(" ")).collect(Collectors.toList());
+
                     break;
                 default:
                     String[] ruleStr = str.split(" -> ");
                     String leftPart = ruleStr[0];
                     if (!rules.containsKey(leftPart))
                         rules.put(leftPart, new ArrayList<>());
-                    rules.get(leftPart).add(Arrays.asList(ruleStr[1].split(" ")));
+                    rules.get(leftPart).add(ruleStr[1].split(" ").toList());
                     break;
             }
         }
         startSymbol = fileContent.get(fileContent.size() - 1);
         return new Grammar(nonTerminals, terminals, rules, startSymbol);
     }
-
 
     public void saveIntoFile(String fileName) throws IOException {
         new File(fileName).newWriter().withWriter { writer ->
@@ -143,7 +143,7 @@ class Grammar {
         char state = 'q'
         def printState = { if (debug) println "($state, $pos, " +
                 "${L1.collect {it.second != -1 ? it.first + it.second : it.first}.join("")}, " +
-                "${L2.reverse().join("")})"}
+                "${L2.reverse().join(" ")})"}
         L2 << startSymbol
         printState()
         while (!L2.empty()) {
