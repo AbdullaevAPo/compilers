@@ -5,4 +5,5 @@ E -> T
 T -> F * T
 T -> F
 F -> a
+F -> ( E )
 E

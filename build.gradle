@@ -1,0 +1,37 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+
+
+    }
+    dependencies {
+    }
+}
+
+apply plugin: 'idea'
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile 'org.jgrapht:jgrapht-core:1.0.1'
+}
+
+jar {
+    baseName = 'compiler-labs'
+    version = '0.0.1-SNAPSHOT'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.12'
+}
